@@ -1,4 +1,5 @@
 import 'package:admin_dashboard/router/auth_handlers.dart';
+import 'package:admin_dashboard/router/dashboard_handlers.dart';
 import 'package:admin_dashboard/router/no_page_found_handlers.dart';
 import 'package:fluro/fluro.dart';
 
@@ -18,14 +19,14 @@ class Flurorouter {
     router.define(rootRoute,
         handler: AuthHandlers.login, transitionType: TransitionType.none);
 
-    // Auth Routes
+    //* Auth Routes
     router.define(loginRoute,
         handler: AuthHandlers.login, transitionType: TransitionType.none);
     router.define(registerRoute,
         handler: AuthHandlers.register, transitionType: TransitionType.none);
 
-    // Dashboard Routes
-    //router.define(dashboardRoute, handler: handler);
+    //* Dashboard Routes
+    router.define(dashboardRoute, handler: DashboardHandlers.dashboard);
 
     //! 404
     router.notFoundHandler = NoPageFoundHandlers.noPageFound;
